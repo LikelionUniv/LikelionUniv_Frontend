@@ -68,13 +68,21 @@ const Nav = () => {
             }
         >
             <Container>
-                <div className="left" style={{ visibility: 'hidden'}}>
-                    <Logo src={logo} onClick={() => navigate('/')} style={{ visibility: 'visible'}} />
-                    <Text to="/recruit" className="first">
+                <div className="left" style={{ visibility: 'hidden' }}>
+                    <Logo
+                        src={logo}
+                        onClick={() => navigate('/')}
+                        style={{ visibility: 'visible' }}
+                    />
+                    <Text
+                        to="/recruit"
+                        className="first"
+                        style={{ visibility: 'visible' }}
+                    >
                         <p>리크루팅</p>
                         <img src={navarrow} />
                     </Text>
-                    <Text to="/univ">
+                    <Text to="/univ" style={{ visibility: 'visible' }}>
                         <p>참여대학</p>
                         <img src={navarrow} />
                     </Text>
@@ -87,7 +95,7 @@ const Nav = () => {
                         <img src={navarrow} />
                     </Text>
                 </div>
-                <div className="right" style={{ visibility: 'hidden'}}>
+                <div className="right" style={{ visibility: 'hidden' }}>
                     {isLogin ? (
                         <>
                             <ChatBtn to="/chat">
@@ -197,6 +205,9 @@ const Container = styled.div`
     @media (max-width: 1120px) {
         width: 672px;
     }
+    @media (max-width: 500px) {
+        width: 400px;
+    }
     .left {
         width: 60%;
         display: flex;
@@ -225,6 +236,9 @@ const Container = styled.div`
 const Logo = styled.img`
     height: 16px;
     cursor: pointer;
+    @media (max-width: 500px) {
+        margin-right: 20px;
+    }
 `;
 
 const Text = styled(NavLink)`
@@ -239,6 +253,12 @@ const Text = styled(NavLink)`
     display: flex;
     align-items: center;
     cursor: default;
+
+    @media (max-width: 500px) {
+        font-size: 14px;
+        width: 80px;
+    }
+
     &.first {
         margin-left: 10%;
     }
