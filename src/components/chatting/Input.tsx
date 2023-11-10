@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import * as I from './InputStyle';
 import AddImg from '../../img/chatting/add_img.svg';
+import { useRecoilState } from 'recoil';
+import { imgBtnClickAtom } from '../../atoms';
 
 const Input = () => {
     const [inputText, setInputText] = useState('');
+    // input에 내용이 있는지 확인하기 위한 state
     const [isInput, setIsInput] = useState(false);
+    // 이미지 전송 버튼 상태
+    const [isImgClick, setIsImgClick] = useRecoilState(imgBtnClickAtom);
+
+    const openImageModal = () => {
+        setIsImgClick(!isImgClick);
+    };
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputText(e.target.value);
@@ -52,6 +61,7 @@ const Input = () => {
                     width={20}
                     height={20}
                     style={{ padding: '14px 8px 14px 16px', cursor: 'pointer' }}
+                    onClick={openImageModal}
                 />
                 <I.MessageInput
                     type="text"

@@ -28,19 +28,6 @@ const Messages = () => {
             <Message />
             <Message />
             <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
         </MS.Container>
     );
 };

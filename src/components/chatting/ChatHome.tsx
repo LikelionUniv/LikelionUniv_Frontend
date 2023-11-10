@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import ChatBox from './ChatBox';
+// import { imgBtnClickAtom } from './../../atoms';
+// import { useRecoilValue } from 'recoil';
+// import ImgModal from './ImgAttachment';
 
 const Home = styled.div`
     height: 1080px;
@@ -12,9 +15,12 @@ const Home = styled.div`
 `;
 
 const ChatHome = () => {
+    // const isImgClick = useRecoilValue(imgBtnClickAtom);
+
     return (
         <Home>
             <ChatBox />
+            {/* {isImgClick ? <ImgModal /> : null} */}
         </Home>
     );
 };
