@@ -1,5 +1,5 @@
 import * as IA from './ImgAttachmentStyle';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // export const ModalBackdrop = styled.div`
 //     // Modal이 떴을 때의 배경을 깔아주는 CSS를 구현

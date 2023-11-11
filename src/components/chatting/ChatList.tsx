@@ -1,15 +1,23 @@
 import * as L from './ChatListStyle';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import dummy from './db/userdata.json';
 import ProfileImg from '../../img/chatting/user_profile.svg';
 import SplitDot from '../../img/chatting/split_dot.svg';
+import { useRecoilState } from 'recoil';
+import { userNameAtom } from '../../atoms';
 
 const ChatList = () => {
     const [isActive, setIsActive] = useState(false);
+    const [activeUserName, setActiveUserName] = useRecoilState(userNameAtom);
 
     function handleClick() {
         setIsActive(!isActive);
     }
+
+    // 비동기 처리
+    useEffect(() => {
+        console.log(activeUserName);
+    }, [activeUserName]);
 
     return (
         <L.Container>
@@ -20,7 +28,10 @@ const ChatList = () => {
                 <L.ListContainer>
                     <L.UserChat
                         className={isActive ? 'active' : ''}
-                        onClick={handleClick}
+                        onClick={() => {
+                            handleClick();
+                            setActiveUserName(user.name);
+                        }}
                     >
                         <L.UserProfile>
                             <img

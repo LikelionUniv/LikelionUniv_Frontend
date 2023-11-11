@@ -2,8 +2,14 @@ import profile_img from '../../img/chatting/chat_profile.svg';
 import * as P from './PannelStyle';
 import Messages from './Messages';
 import Input from './Input';
+import Loading from './Loading';
+import { useRecoilValue } from 'recoil';
+import { loadingAtom, userNameAtom } from '../../atoms';
 
 const Pannel = () => {
+    const loading = useRecoilValue(loadingAtom);
+    const activeUserName = useRecoilValue(userNameAtom);
+
     return (
         <P.Container>
             <P.Header>
@@ -16,11 +22,11 @@ const Pannel = () => {
                             borderRadius: '50%',
                         }}
                     />
-                    <P.ChatName>이름</P.ChatName>
+                    <P.ChatName>{activeUserName}</P.ChatName>
                 </P.ChatInfo>
             </P.Header>
             <P.Shadow />
-            <Messages />
+            {loading ? <Loading /> : <Messages />}
             <Input />
         </P.Container>
     );

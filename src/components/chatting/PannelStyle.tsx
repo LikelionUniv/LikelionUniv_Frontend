@@ -2,14 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 935px;
-    height: 944px;
+    height: 100%;
     background-color: white;
     border-left: 1px solid var(--Grey-300, #eaecee);
-
-    @media (max-width: 1280px) {
-        width: 100%;
-        height: 100%;
-    }
 `;
 
 export const Header = styled.div`
@@ -30,7 +25,7 @@ export const Header = styled.div`
 
 export const ChatInfo = styled.div`
     display: flex;
-    width: 90px;
+    width: 100%;
     height: auto;
     padding: var(--Percent, 0px);
     align-items: center;
@@ -50,7 +45,7 @@ export const ChatName = styled.span`
 `;
 
 export const Shadow = styled.div`
-    width: 935px;
+    width: 100%;
     height: 4px;
     flex-shrink: 0;
     border-radius: var(--Percent, 0px);
@@ -59,8 +54,4 @@ export const Shadow = styled.div`
         rgba(234, 236, 238, 0.5) 0%,
         rgba(220, 223, 227, 0) 100%
     );
-
-    @media (max-width: 1280px) {
-        width: 100%;
-    }
 `;

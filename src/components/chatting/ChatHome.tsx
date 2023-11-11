@@ -20,6 +20,7 @@ const ChatHome = () => {
     return (
         <Home>
             <ChatBox />
+
             {/* {isImgClick ? <ImgModal /> : null} */}
         </Home>
     );

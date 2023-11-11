@@ -13,6 +13,7 @@ const Input = () => {
 
     const openImageModal = () => {
         setIsImgClick(!isImgClick);
+        console.log('Send image?');
     };
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

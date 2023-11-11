@@ -2,19 +2,15 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
-    width: 937px;
+    flex-direction: row;
+    width: min-content;
     height: 72px;
-    align-items: center;
     padding: var(--Percent, 8px) var(--Percent, 15px) var(--Percent, 16px)
         var(--Percent, 16px);
     gap: var(--Percent, 8px);
     border-radius: var(--Percent, 0px) var(--Percent, 0px) 8px
         var(--Percent, 0px);
     background: var(--White, #fff);
-
-    @media (max-width: 1280px) {
-        width: 100%;
-    }
 `;
 
 export const Message = styled.div`
@@ -29,7 +25,6 @@ export const Message = styled.div`
 
 export const MessageInput = styled.input`
     color: var(--Grey-900, #212224);
-    width: 100%;
 
     /* Body/14_Medium */
     font-family: Pretendard;
