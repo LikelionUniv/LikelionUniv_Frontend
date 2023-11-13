@@ -31,7 +31,7 @@ const InfoTrack = () => {
                     <Arrow className="hover-hide" />
                 </div>
                 <div className="hover-text">
-                    눈에 보이지 않는 서버를 전반적으로 담당하는 백엔드는,
+                    눈에 보이지 않는 서버를 전반적으로 담당하는 백엔드는
                     서비스의 요구사항에 맞춰 API를 개발하고 서비스 배포 및
                     운영을 통해 데이터를 관리합니다. Django, DRF, Spring 등
                     다양한 프레임 워크를 바탕으로 서비스 운영을 위한 전체적인
