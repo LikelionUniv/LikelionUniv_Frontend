@@ -10,6 +10,9 @@ import defaultprofile from '../img/nav/default_profile.svg';
 import mypage from '../img/nav/mypage.svg';
 import logout from '../img/nav/logout.svg';
 import { ReactComponent as Arrow } from '../img/arrow.svg';
+import { ReactComponent as HeaderMenu } from '../img/header-menu.svg';
+import { ReactComponent as CloseButton } from '../img/button_close.svg';
+
 
 const Nav = () => {
     const navigate = useNavigate();
@@ -57,44 +60,51 @@ const Nav = () => {
         };
     }, [profileModal]);
 
+    const [menuOpen, setMenuOpen] = useState(true);
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+      };
+    
+
     return (
-        <Wrapper
-            className={
-                visible === false
-                    ? 'fade-out'
-                    : visible === true
-                    ? 'fade-in'
-                    : undefined
-            }
-        >
+        <Wrapper className={visible === false ? 'fade-out' : visible === true ? 'fade-in' : undefined}>
             <Container>
-                <div className="left" style={{ visibility: 'hidden' }}>
-                    <Logo
-                        src={logo}
-                        onClick={() => navigate('/')}
-                        style={{ visibility: 'visible' }}
-                    />
-                    <Text
-                        to="/recruit"
-                        className="first"
-                        style={{ visibility: 'visible' }}
-                    >
+                <Logo src={logo} onClick={() => navigate('/')} />
+                
+                {/* 데스크탑 네비게이션 링크 */}
+                <DesktopNavLinks>
+                    <Text to="/recruit">
                         <p>리크루팅</p>
                         <img src={navarrow} />
                     </Text>
-                    <Text to="/univ" style={{ visibility: 'visible' }}>
+                    <Text to="/univ">
                         <p>참여대학</p>
                         <img src={navarrow} />
                     </Text>
                     <Text to="/project">
                         <p>프로젝트</p>
-                        <img src={navarrow} />
+                    <img src={navarrow} />
                     </Text>
                     <Text to="/community">
                         <p>커뮤니티</p>
                         <img src={navarrow} />
                     </Text>
-                </div>
+                </DesktopNavLinks>
+
+                {/* 모바일 메뉴 버튼 */}
+                <MobileMenuIcon onClick={toggleMenu}>
+                {menuOpen ? <CloseButton /> : <HeaderMenu />}
+                </MobileMenuIcon>
+
+                {/* 모바일 메뉴 드롭다운 */}
+                {menuOpen && (
+                <MobileMenu className={visible ? 'menu-visible' : 'menu-hidden'}>
+                    <MobileNavLink to="/recruit" onClick={toggleMenu}>리크루팅</MobileNavLink>
+                    <MobileNavLink to="/univ" onClick={toggleMenu}>참여대학</MobileNavLink>
+                    <MobileNavLink to="/project" onClick={toggleMenu}>프로젝트</MobileNavLink>
+                    <MobileNavLink to="/community" onClick={toggleMenu}>커뮤니티</MobileNavLink>
+                </MobileMenu>
+                )}
                 <div className="right" style={{ visibility: 'hidden' }}>
                     {isLogin ? (
                         <>
@@ -205,8 +215,10 @@ const Container = styled.div`
     @media (max-width: 1120px) {
         width: 672px;
     }
-    @media (max-width: 500px) {
-        width: 400px;
+    @media (max-width: 500px) { // 미디어 쿼리는 프로젝트에 맞게 조정하세요
+        .left, .right {
+        display: none; // 기존 네비게이션 요소들을 숨깁니다
+        }
     }
     .left {
         width: 60%;
@@ -274,12 +286,14 @@ const Text = styled(NavLink)`
     p:hover + img {
         display: flex;
     }
-    &.active {
-        font-weight: 700;
-        img {
-            display: flex;
-        }
-    }
+    &:hover {
+        text-decoration: underline; // 호버 시 밑줄 표시
+      }
+    
+      &.active {
+        font-weight: 700; // 활성 링크에 대한 스타일
+        text-decoration: underline; // 활성 링크에 밑줄을 항상 표시
+      }
 `;
 
 const LoginBtn = styled.div`
@@ -383,4 +397,72 @@ const ProfileModal = styled.div`
             margin: 0 8px 0 11px;
         }
     }
+`;
+
+const MobileMenu = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 55px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.5s ease-in-out; // 부드러운 변환 효과를 위해 추가
+  }
+
+  // 스크롤에 따른 메뉴의 보이기/숨기기 효과를 위한 스타일
+  &.menu-visible {
+    transform: translateY(0); // 메뉴가 보이는 위치
+  }
+  &.menu-hidden {
+    transform: translateY(-140%); // 메뉴가 화면 위로 사라지는 위치
+  }
+`;
+
+const MobileNavLink = styled(NavLink)`
+  padding: 10px 20px;
+  color: var(--grey-900, #212224); // 텍스트 색상을 검은색으로 설정
+  text-decoration: none; // 기본 밑줄 제거
+  margin-top: 10px;
+  margin-bottom: 5px;
+
+  &:hover {
+    text-decoration: underline; // 호버 시 밑줄 표시
+  }
+
+  &.active {
+    font-weight: 700; // 활성 링크에 대한 스타일
+    text-decoration: underline; // 활성 링크에 밑줄을 항상 표시
+  }
+`;
+
+const MobileMenuIcon = styled.div`
+  display: none; // 기본적으로는 숨김 처리
+
+  @media (max-width: 768px) { // 미디어 쿼리는 프로젝트에 맞게 조정하세요
+    display: block; // 모바일 뷰에서만 보이도록 설정
+    position: absolute; // 절대 위치
+    top: 0; // 상단에 고정
+    right: 0; // 오른쪽 끝에 고정
+    padding: 4px; // 필요에 따라 패딩 조정
+    cursor: pointer;
+    margin-right: 30px;
+  }
+`;
+
+const DesktopNavLinks = styled.div`
+  @media (max-width: 500px) {
+    display: none; // 모바일 화면에서는 텍스트 버튼들을 숨깁니다
+  }
+
+  // 데스크탑 화면에서는 텍스트 버튼들을 보여주기 위한 스타일
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // 필요한 경우 추가 스타일
 `;
