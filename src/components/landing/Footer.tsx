@@ -7,6 +7,11 @@ import { ReactComponent as PixelNoticeIcon } from '../../img/landing/pixel_notic
 import { ReactComponent as PixelLongArrowIcon } from '../../img/landing/pixel_long_right_arrow.svg';
 import { ReactComponent as PixelArrowIcon } from '../../img/landing/pixel_arrow_upright.svg';
 import FooterModal from '../recruit/FooterModal';
+import { ReactComponent as ButtonAbout } from '../../img/landing/button_about.svg';
+import { ReactComponent as ButtonBrunch } from '../../img/landing/button_brunch.svg';
+import { ReactComponent as ButtonInstagram } from '../../img/landing/button_instagram.svg';
+import { ReactComponent as ButtonYoutube } from '../../img/landing/button_youtube.svg';
+
 
 const Footer = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -73,6 +78,51 @@ const Footer = () => {
                     </div>
                 </div>
             </F.Info>
+            <F.SocialMediaWrapper>
+                <a href="https://www.instagram.com/likelion.univ/">
+                    <ButtonInstagram />
+                </a>
+                <a href="https://www.youtube.com/@likelion.official">
+                    <ButtonYoutube />
+                </a>
+                <a href="https://brunch.co.kr/@likelion">
+                    <ButtonBrunch />
+                </a>
+                <a href="/about" >
+                    <ButtonAbout />
+                </a>
+            </F.SocialMediaWrapper>
+            <F.SectionWrapper>
+                <F.FamilySiteSection>
+                    <F.SectionTitle>FAMILY SITE</F.SectionTitle>
+                    <F.LinkList>
+                        <F.LinkItemWithIcon href="https://https://techit.education/">
+                            TECHIT
+                            <F.StyledIconArrowUpRightBlack />
+                        </F.LinkItemWithIcon>
+                        <F.LinkItemWithIcon href="https://modernlion.io">
+                            MODERN LION
+                            <F.StyledIconArrowUpRightBlack />
+                        </F.LinkItemWithIcon>
+                    </F.LinkList>
+                </F.FamilySiteSection>
+                
+                <F.PolicySection>
+                    <F.SectionTitle>POLICY</F.SectionTitle>
+                    <F.LinkList>
+                        <F.LinkItem href="">회칙</F.LinkItem>
+                        <F.LinkItem href="">개인정보처리방침</F.LinkItem>
+                        <F.LinkItemWithIcon href="">
+                            Nonprofit Report
+                            <F.StyledIconDownload />
+                        </F.LinkItemWithIcon>
+                        <F.LinkItemWithIcon href="">
+                            지정기탁신청서                            
+                            <F.StyledIconDownload />
+                        </F.LinkItemWithIcon>
+                    </F.LinkList>
+                </F.PolicySection>
+            </F.SectionWrapper>
         </F.Wrapper>
     );
 };

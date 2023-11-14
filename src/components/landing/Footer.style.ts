@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import { ReactComponent as IconDownload } from '../../img/landing/icon_download.svg';
+import { ReactComponent as IconArrowUpRightBlack } from '../../img/landing/arrow_up_right_black.svg';
 
 export const Wrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #f2f4f6;
 `;
 
 export const Recruit = styled.div`
@@ -253,7 +256,7 @@ export const Info = styled.div`
     .container {
         position: relative;
         width: 1200px;
-        margin-top: 20px;
+        margin-top: 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -322,4 +325,110 @@ export const Info = styled.div`
             }
         }
     }
+`;
+
+export const SocialMediaWrapper = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    background-color: #f2f4f6;
+    width: 1200px; // Info 섹션과 동일한 너비
+    margin-left: auto; // 오른쪽 정렬
+    margin-right: auto; // 왼쪽 정렬
+
+
+    @media (max-width: 1280px) {
+    width: calc(100% - 60px); // 화면이 1280px보다 작을 때 너비 조정
+    }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    svg {
+        height: 40px;
+        width: auto;
+    }
+
+    @media (max-width: 1280px) {
+        gap: 15px;
+    }
+
+    @media (max-width: 720px) {
+        flex-direction: row;
+        gap: 10px;
+    }
+`;
+
+
+export const SectionWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 0;
+  background-color: #f2f4f6;
+  width: 1200px; // SocialMediaWrapper와 동일한 너비
+  margin-left: auto; // 가운데 정렬
+  margin-right: auto; // 가운데 정렬
+
+  @media (max-width: 1280px) {
+    width: calc(100% - 60px); // 미디어 쿼리에서 화면이 1280px 이하일 때 조정
+    padding-left: 30px; // SocialMediaWrapper와 동일한 패딩
+    padding-right: 30px;
+  }
+`;
+
+
+export const FamilySiteSection = styled.div`
+  margin-bottom: 20px; // 섹션 간 간격을 주기 위한 마진
+`;
+
+export const PolicySection = styled.div`
+  margin-bottom: 20px; // 섹션 간 간격을 주기 위한 마진
+`;
+
+export const SectionTitle = styled.h2`
+  font-size: 1.25rem; // 타이틀 폰트 크기
+  font-weight: bold;
+  color: #212224; // 타이틀 색상
+  margin-bottom: 10px; // 타이틀과 링크 리스트 간 간격
+`;
+export const LinkList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0; // 기본 마진 제거
+`;
+
+export const LinkItem = styled.a`
+  display: block; // 각 링크가 새로운 줄에 표시되도록 설정
+  font-size: 1rem;
+  color: #212224;
+  text-decoration: none; // 링크 밑줄 제거
+  padding: 5px 0; // 위아래 패딩 추가하여 링크 사이에 공간을 줌
+
+  &:hover {
+    text-decoration: underline; // 마우스 호버 시 밑줄 표시
+  }
+`;
+
+
+export const StyledIconDownload = styled(IconDownload)`
+  margin-left: 1px; // 아이콘과 텍스트 사이의 간격
+`;
+
+export const StyledIconArrowUpRightBlack = styled(IconArrowUpRightBlack)`
+  margin-left: 1px; // 아이콘과 텍스트 사이의 간격
+`;
+
+export const LinkItemWithIcon = styled(LinkItem)`
+  display: flex; // flexbox를 사용하여 아이콘과 텍스트를 같은 줄에 배치
+  align-items: center; // 중앙 정렬
+  text-decoration: none; // 텍스트 밑줄 제거
+
+  &:hover {
+    text-decoration: underline; // 호버 시 밑줄을 표시
+  }
 `;
