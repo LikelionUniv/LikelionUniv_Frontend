@@ -4,8 +4,17 @@ export const Container = styled.div`
     display: flex;
     margin-bottom: 4px;
 
+    @media (max-width: 768px) {
+        padding-right: 100px;
+    }
+
     &.owner {
         flex-direction: row-reverse;
+        padding-right: 24px;
+
+        @media (max-width: 768px) {
+            padding-left: 100px;
+        }
 
         p {
             display: inline-flex;
@@ -18,10 +27,6 @@ export const Container = styled.div`
             border-radius: 20px;
             background: var(--Orange-200, #ffe4cf);
         }
-    }
-
-    @media (max-width: 1280px) {
-        width: 100%;
     }
 `;
 
@@ -47,10 +52,6 @@ export const Content = styled.div`
         font-style: normal;
         font-weight: 500;
         line-height: 150%; /* 21px */
-    }
-
-    @media (max-width: 1280px) {
-        height: 100%;
     }
 `;
 

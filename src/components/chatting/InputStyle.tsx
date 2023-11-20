@@ -3,14 +3,16 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     flex-direction: row;
-    width: min-content;
-    height: 72px;
+    width: 100%;
     padding: var(--Percent, 8px) var(--Percent, 15px) var(--Percent, 16px)
         var(--Percent, 16px);
     gap: var(--Percent, 8px);
     border-radius: var(--Percent, 0px) var(--Percent, 0px) 8px
         var(--Percent, 0px);
-    background: var(--White, #fff);
+
+    @media (max-width: 1279px) {
+        width: 100%;
+    }
 `;
 
 export const Message = styled.div`
@@ -21,9 +23,14 @@ export const Message = styled.div`
     border: 1px solid var(--Grey-300, #eaecee);
     display: flex;
     align-items: center;
+
+    @media (max-width: 1279px) {
+        width: calc(100% - 94px);
+    }
 `;
 
 export const MessageInput = styled.input`
+    width: 100%;
     color: var(--Grey-900, #212224);
 
     /* Body/14_Medium */

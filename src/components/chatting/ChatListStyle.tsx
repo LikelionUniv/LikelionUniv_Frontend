@@ -2,21 +2,34 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 264px;
-    height: 944px;
+    height: 100%;
     flex-shrink: 0;
     fill: var(--White, #fff);
     stroke-width: 1px;
     stroke: var(--Grey-300, #eaecee);
+
+    @media (max-width: 1280px) {
+        width: 264px;
+    }
+    @media (max-width: 768px) {
+        width: 264px;
+    }
 `;
 
 export const Header = styled.div`
     display: flex;
-    width: 264px;
+    width: 100%;
     height: 72px;
     align-items: center;
     border-radius: 8px 0px 0px 0px;
     border: 1px solid var(--Grey-300, #eaecee);
     background: var(--White, #fff);
+    @media (max-width: 1280px) {
+        width: 100%;
+    }
+    @media (min-width: 768px) {
+        min-width: 768px;
+    }
 `;
 
 export const HeaderText = styled.text`
@@ -45,7 +58,7 @@ export const ListContainer = styled.div`
 // `;
 
 export const UserChat = styled.div`
-    width: 244px;
+    width: 100%;
     height: 80px;
     flex-shrink: 0;
     border-radius: 8px;

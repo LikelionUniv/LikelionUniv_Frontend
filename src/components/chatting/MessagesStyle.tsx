@@ -5,15 +5,10 @@ export const Container = styled.div`
     height: calc(100% - 204px);
     flex-shrink: 0;
     padding: 24px;
-    background-color: #fff;
     border-radius: var(--Percent, 0px);
     overflow-x: hidden;
     overflow-y: scroll;
     text-align: center;
-
-    @media (max-width: 1280px) {
-        width: 100%;
-    }
 `;
 
 export const Date = styled.div`

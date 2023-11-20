@@ -5,10 +5,8 @@ import ChatBox from './ChatBox';
 // import ImgModal from './ImgAttachment';
 
 const Home = styled.div`
-    height: 1080px;
+    height: 100vh;
     display: flex;
-    padding-top: 40px;
-    padding-bottom: 0px;
     flex-direction: column;
     align-items: center;
     background: var(--Grey-200, #f2f4f6);

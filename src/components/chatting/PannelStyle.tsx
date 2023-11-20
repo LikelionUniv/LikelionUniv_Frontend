@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 935px;
+    width: calc(100% - 264px);
     height: 100%;
-    background-color: white;
     border-left: 1px solid var(--Grey-300, #eaecee);
+    background-color: white;
+
+    @media (max-width: 1279px) {
+        padding-right: 24px;
+    }
 `;
 
 export const Header = styled.div`
@@ -17,10 +21,6 @@ export const Header = styled.div`
     border-radius: 8px var(--Percent, 0px) var(--Percent, 0px)
         var(--Percent, 0px);
     border-bottom: 1px solid var(--Grey-300, #eaecee);
-
-    @media (max-width: 1280px) {
-        width: 100%;
-    }
 `;
 
 export const ChatInfo = styled.div`
@@ -54,4 +54,10 @@ export const Shadow = styled.div`
         rgba(234, 236, 238, 0.5) 0%,
         rgba(220, 223, 227, 0) 100%
     );
+    @media (max-width: 1280px) {
+        width: 100%;
+    }
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;

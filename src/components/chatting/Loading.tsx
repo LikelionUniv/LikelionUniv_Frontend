@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import LoadingImg from '../../img/chatting/eyes.svg';
 
 const Container = styled.div`
-    width: 100%;
     height: calc(100% - 204px);
     flex-shrink: 0;
     padding: 24px;
-    background-color: #fff;
+    background-color: white;
     border-radius: var(--Percent, 0px);
     display: flex;
     flex-direction: column;
@@ -16,6 +16,7 @@ const Container = styled.div`
 const NoticeText = styled.span`
     color: var(--Grey-900, #212224);
     text-align: center;
+    padding-top: 24px;
 
     /* Title/24_Bold */
     font-family: Pretendard;
@@ -28,6 +29,7 @@ const NoticeText = styled.span`
 const Loading = () => {
     return (
         <Container>
+            <img src={LoadingImg} alt="loading" />
             <NoticeText>현재 채팅 중인 채팅방이 없어요.</NoticeText>
         </Container>
     );
