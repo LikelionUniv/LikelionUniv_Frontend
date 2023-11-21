@@ -6,7 +6,7 @@ const InfoNumber = () => {
     // number section이 스크롤 뷰 내에 있는지 감지
     const numberRef = useRef<HTMLDivElement>(null);
     const [isInView, setIsInView] = useState<boolean>(false);
-    const options = { rootMargin: '0px', threshold: 1 };
+    const options = { rootMargin: '100px' };
     const onIntersect = (entry: any, observer: any) => {
         observer.unobserve(entry.target);
         setIsInView(true);
@@ -83,13 +83,15 @@ const InfoNumber = () => {
 
     return (
         <>
-            <IF.Title>
-                숫자가 <PixelNumberIcon />
-                말해주는 멋사
+            <IF.Title className="br">
+                <span>
+                    숫자가 <PixelNumberIcon />
+                </span>
+                <span className="right">말해주는 멋사</span>
             </IF.Title>
             <IF.SectionContainer ref={numberRef}>
                 <div className="number-rect">
-                    <div className="subtitle">시작한지</div>
+                    <div className="subtitle">시작된지</div>
                     <div className="number">
                         {count1}년<sup>{count11}~</sup>
                     </div>

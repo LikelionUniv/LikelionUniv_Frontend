@@ -11,8 +11,8 @@ const responsiveWidth = css`
     }
 
     @media screen and (max-width: 480px) {
-        max-width: 360px;
-        padding: 3%;
+        //max-width: 360px;
+        padding: 5%;
     }
 `;
 
@@ -30,10 +30,6 @@ export const Wrapper = styled.div`
     padding: 1rem;
 
     ${responsiveWidth}
-
-    @media screen and (max-width: 450px) {
-        padding: 0.5rem;
-    }
 
     .year {
         border-bottom: 1px solid #eaecee;

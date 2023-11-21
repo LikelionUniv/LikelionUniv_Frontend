@@ -7,14 +7,16 @@ export const UserBox = styled.div`
     display: flex;
 `;
 
-export const Avatar = styled.div`
+export const Avatar = styled.div<{ imgUrl?: string }>`
     width: 124px;
     height: 124px;
     flex-shrink: 0;
     border-radius: 50%;
     border: 1px solid #eaecee;
 
-    background-image: url(${profile});
+    //background-image : url(${profile}) ;
+
+    background-image: url(${props => props.imgUrl || profile});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

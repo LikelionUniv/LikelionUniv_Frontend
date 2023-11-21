@@ -14,6 +14,9 @@ import ProjectList from './components/project/ProjectList';
 import Community from './routes/Community';
 import RecruitPage from './routes/RecruitPage';
 import AboutPage from './routes/AboutPage';
+import BabyLion from './components/recruit/apply/mobile/BabyLion';
+import Recruit from './components/univrecruit/UnivRecruit';
+import UnivRecruit from './components/univrecruit/UnivRecruit';
 
 const router = createBrowserRouter([
     {
@@ -61,7 +64,16 @@ const router = createBrowserRouter([
             {
                 path: '/recruit',
                 element: <RecruitPage />,
-                children: [],
+                children: [
+                    {
+                        path: '',
+                        element: <UnivRecruit />,
+                    },
+                    {
+                        path: 'babylion',
+                        element: <BabyLion />,
+                    },
+                ],
             },
             {
                 path: '/univ',
